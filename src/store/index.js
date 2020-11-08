@@ -9,8 +9,23 @@ export default new Vuex.Store({
     todos: dataDummy,
   },
   mutations: {
+    addTodo(state, payload){
+      state.todos.push(payload)
+    },
+    delTodo(state, payload){
+      console.log(payload)
+      state.todos = state.todos.filter(el=>{
+        return el.id !== payload
+      })
+    }
   },
   actions: {
+    addTodo({commit}, payload){
+      commit('addTodo', payload)
+    },
+    delTodo({commit}, payload){
+      commit('delTodo', payload)
+    }
   },
   modules: {
   }
