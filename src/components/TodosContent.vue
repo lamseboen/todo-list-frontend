@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row justify="start">
-      <v-col col="4" xs="12">
+      <v-col col="4" xs="12" v-if="todosToday.length">
         <v-card class="pa-2" outlined tile>
           Today
           <v-col v-for="todo in todosToday" :key="todo.id" cols="12">
@@ -54,7 +54,7 @@
           </v-col>
         </v-card>
       </v-col>
-      <v-col col="4" xs="12">
+      <v-col col="4" xs="12"  v-if="todosTomorow.length">
         <v-card class="pa-2" outlined tile>
           Tomorow
           <v-col v-for="todo in todosTomorow" :key="todo.id" cols="12">

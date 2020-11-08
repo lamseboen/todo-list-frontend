@@ -1,15 +1,15 @@
 <template>
-      <TodosPage/>
+      <router-view/>
 </template>
 
 <script>
-import TodosPage from './views/TodosPage';
+// import TodosPage from './views/TodosPage';
 
 export default {
   name: 'App',
 
   components: {
-    TodosPage,
+    // TodosPage,
   },
 
   data: () => ({

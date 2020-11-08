@@ -1,8 +1,8 @@
 <template>
   <v-navigation-drawer permanent fixed app>
-    <v-list-item>
+    <v-list-item link to="/">
       <v-list-item-content>
-        <v-list-item-title class="title"> Simple Todo List </v-list-item-title>
+        <v-list-item-title class="title" > Simple Todo List </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
 
