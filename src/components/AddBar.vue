@@ -79,7 +79,7 @@
           label="Tag"
           single-line
           required
-          :color="todoTag"
+          :background-color="todoTag"
         ></v-select>
       </div>
       <div class="pt-3">

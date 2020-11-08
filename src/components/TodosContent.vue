@@ -6,55 +6,7 @@
           Today
           <v-col v-for="todo in todosToday" :key="todo.id" cols="12">
             <v-card :color="todo.tag" dark>
-              <div class="d-flex flex-no-wrap justify-space-between">
-                <div>
-                  <v-btn
-                    color="secondary"
-                    fab
-                    x-small
-                    absolute
-                    top
-                    right
-                    @click="delTodo(todo.id)"
-                  >
-                    <v-icon>mdi-close</v-icon>
-                  </v-btn>
-                </div>
-                <div></div>
-                <div>
-                  <v-card-title
-                    class="headline"
-                    v-text="todo.title"
-                  ></v-card-title>
-
-                  <v-card-subtitle
-                    v-text="todo.date + ' / ' + todo.time"
-                  ></v-card-subtitle>
-
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn
-                      class="ml-2 mt-5"
-                      outlined
-                      rounded
-                      small
-                      @click.stop="editDialog(todo.id)"
-                    >
-                      <v-icon>mdi-lead-pencil</v-icon>
-                    </v-btn>
-                  </v-card-actions>
-                </div>
-              </div>
-            </v-card>
-          </v-col>
-        </v-card>
-      </v-col>
-      <v-col col="4" xs="12">
-        <v-card class="pa-2" outlined tile>
-          Tomorow
-          <v-col v-for="todo in todosTomorow" :key="todo.id" cols="12">
-            <v-card :color="todo.tag" dark>
-              <div class="d-flex flex-no-wrap justify-space-between">
+              <div>
                 <v-btn
                   color="secondary"
                   fab
@@ -66,6 +18,8 @@
                 >
                   <v-icon>mdi-close</v-icon>
                 </v-btn>
+              </div>
+              <div class="d-flex flex-no-wrap justify-space-between">
                 <div>
                   <v-card-title
                     class="headline"
@@ -76,18 +30,77 @@
                     v-text="todo.date + ' / ' + todo.time"
                   ></v-card-subtitle>
 
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn
-                      class="ml-2 mt-5"
-                      outlined
-                      rounded
-                      small
-                      @click.stop="editDialog(todo.id)"
-                    >
-                      <v-icon>mdi-lead-pencil</v-icon>
-                    </v-btn>
-                  </v-card-actions>
+                  <v-row justify="end">
+                    <v-col col="12" md="12">
+                      <v-card-actions>
+                        <!-- <v-spacer></v-spacer> -->
+                        <v-btn
+                          class="ml-2 mt-5 mb-4"
+                          outlined
+                          rounded
+                          small
+                          absolute
+                          right
+                          @click.stop="editDialog(todo.id)"
+                        >
+                          <v-icon>mdi-lead-pencil</v-icon>
+                        </v-btn>
+                      </v-card-actions>
+                    </v-col>
+                  </v-row>
+                </div>
+              </div>
+            </v-card>
+          </v-col>
+        </v-card>
+      </v-col>
+      <v-col col="4" xs="12">
+        <v-card class="pa-2" outlined tile>
+          Tomorow
+          <v-col v-for="todo in todosTomorow" :key="todo.id" cols="12">
+            <v-card :color="todo.tag" dark>
+              <div>
+                <v-btn
+                  color="secondary"
+                  fab
+                  x-small
+                  absolute
+                  top
+                  right
+                  @click="delTodo(todo.id)"
+                >
+                  <v-icon>mdi-close</v-icon>
+                </v-btn>
+              </div>
+              <div class="d-flex flex-no-wrap justify-space-between">
+                <div>
+                  <v-card-title
+                    class="headline"
+                    v-text="todo.title"
+                  ></v-card-title>
+
+                  <v-card-subtitle
+                    v-text="todo.date + ' / ' + todo.time"
+                  ></v-card-subtitle>
+
+                  <v-row justify="end">
+                    <v-col col="12" md="12">
+                      <v-card-actions>
+                        <!-- <v-spacer></v-spacer> -->
+                        <v-btn
+                          class="ml-2 mt-5 mb-4"
+                          outlined
+                          rounded
+                          small
+                          absolute
+                          right
+                          @click.stop="editDialog(todo.id)"
+                        >
+                          <v-icon>mdi-lead-pencil</v-icon>
+                        </v-btn>
+                      </v-card-actions>
+                    </v-col>
+                  </v-row>
                 </div>
               </div>
             </v-card>
@@ -121,18 +134,24 @@
                     v-text="todo.date + ' / ' + todo.time"
                   ></v-card-subtitle>
 
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn
-                      class="ml-2 mt-5 mr-0"
-                      outlined
-                      rounded
-                      small
-                      @click.stop="editDialog(todo.id)"
-                    >
-                      <v-icon>mdi-lead-pencil</v-icon>
-                    </v-btn>
-                  </v-card-actions>
+                  <v-row justify="end">
+                    <v-col col="12" md="12">
+                      <v-card-actions>
+                        <!-- <v-spacer></v-spacer> -->
+                        <v-btn
+                          class="ml-2 mt-5 mb-4"
+                          outlined
+                          rounded
+                          small
+                          absolute
+                          right
+                          @click.stop="editDialog(todo.id)"
+                        >
+                          <v-icon>mdi-lead-pencil</v-icon>
+                        </v-btn>
+                      </v-card-actions>
+                    </v-col>
+                  </v-row>
                 </div>
               </div>
             </v-card>
@@ -218,6 +237,7 @@
               single-line
               required
               :color="todoTagEdit"
+              :background-color="todoTagEdit"
             ></v-select>
           </div>
           <div class="pt-3">
@@ -225,8 +245,6 @@
               Add New Todo List
             </v-btn>
           </div>
-
-          <!-- <v-btn class="mr-4" @click="submit"> submit </v-btn> -->
         </form>
       </v-card>
     </v-dialog>
@@ -237,15 +255,15 @@
 export default {
   data: () => ({
     justify: ["start", "center", "end", "space-around", "space-between"],
-    colors: [ "green", "blue", "brown"],
+    colors: ["green", "blue", "brown"],
     dialog: false,
-    dateInput:false,
-    timeInput:false,
+    dateInput: false,
+    timeInput: false,
     todoTitleEdit: "",
-    todoDateEdit:"",
-    todoTimeEdit:"",
-    todoTagEdit:"",
-    id: ""
+    todoDateEdit: "",
+    todoTimeEdit: "",
+    todoTagEdit: "",
+    id: "",
   }),
   computed: {
     todosToday: function () {
@@ -277,20 +295,29 @@ export default {
       this.$store.dispatch("delTodo", id);
     },
     editDialog(id) {
-      const dataEdit = this.$store.state.todos.filter(el=>{
-        return el.id == id
-      })
+      const dataEdit = this.$store.state.todos.filter((el) => {
+        return el.id == id;
+      });
       console.log(dataEdit);
-      this.todoTitleEdit = dataEdit[0].title
-      this.todoDateEdit = dataEdit[0].date
-      this.todoTimeEdit = dataEdit[0].time
-      this.todoTagEdit = dataEdit[0].tag
-      this.id = id
+      this.todoTitleEdit = dataEdit[0].title;
+      this.todoDateEdit = dataEdit[0].date;
+      this.todoTimeEdit = dataEdit[0].time;
+      this.todoTagEdit = dataEdit[0].tag;
+      this.id = id;
       this.dialog = true;
     },
-    updateTodo(){
-      alert(this.id)
-    }
+    updateTodo() {
+      const payload = {
+        id: this.id,
+        title: this.todoTitleEdit,
+        tag: this.todoTagEdit,
+        time: this.todoTimeEdit,
+        date: this.todoDateEdit,
+        status: false,
+      };
+      this.$store.dispatch("updateTodo", payload);
+      this.dialog = false;
+    },
   },
 };
 </script>

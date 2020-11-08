@@ -13,10 +13,19 @@ export default new Vuex.Store({
       state.todos.push(payload)
     },
     delTodo(state, payload){
-      console.log(payload)
+      // console.log(payload)
       state.todos = state.todos.filter(el=>{
         return el.id !== payload
       })
+    },
+    updateTodo(state, payload){
+      console.log(state.todos)
+      state.todos = state.todos.filter(el=>{
+        return el.id !== payload.id
+      })
+      console.log(state.todos)
+      state.todos = [...state.todos, payload]
+      console.log(state.todos)
     }
   },
   actions: {
@@ -25,6 +34,9 @@ export default new Vuex.Store({
     },
     delTodo({commit}, payload){
       commit('delTodo', payload)
+    },
+    updateTodo({commit}, payload){
+      commit('updateTodo', payload)
     }
   },
   modules: {
