@@ -14,7 +14,7 @@
                   absolute
                   top
                   right
-                  @click="delTodo(todo.id)"
+                  @click="showAlert(todo.id)"
                 >
                   <v-icon>mdi-close</v-icon>
                 </v-btn>
@@ -54,7 +54,7 @@
           </v-col>
         </v-card>
       </v-col>
-      <v-col col="4" xs="12"  v-if="todosTomorow.length">
+      <v-col col="4" xs="12" v-if="todosTomorow.length">
         <v-card class="pa-2" outlined tile>
           Tomorow
           <v-col v-for="todo in todosTomorow" :key="todo.id" cols="12">
@@ -317,6 +317,28 @@ export default {
       };
       this.$store.dispatch("updateTodo", payload);
       this.dialog = false;
+    },
+    showAlert() {
+      // Use sweetalert2
+      // const options = {
+      //   confirmButtonColor: "#41b882",
+      //   cancelButtonColor: "#ff7674",
+      // };
+      // this.$swal("Hello Vue world!!!", options);
+      this.$swal.fire({
+        title: "Do you want to save the changes?",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: `Save`,
+        denyButtonText: `Don't save`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          this.$swal.fire("Saved!", "", "success");
+        } else if (result.isDenied) {
+          this.$swal.fire("Changes are not saved", "", "info");
+        }
+      });
     },
   },
 };
